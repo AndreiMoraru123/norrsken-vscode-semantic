@@ -4,7 +4,7 @@ I created this fork of the [Norrken theme](https://github.com/webhooked/norrsken
 
 ## Here's a first look:
 
-<img width="1803" height="1557" alt="image" src="https://github.com/user-attachments/assets/28e83a36-a7bb-4b51-85a0-f07b7305ddaf" />
+<img width="1995" height="1641" alt="image" src="https://github.com/user-attachments/assets/0606e179-c7fc-4ac8-b2a6-d9bcf814b420" />
 
 ## Contributing
 
