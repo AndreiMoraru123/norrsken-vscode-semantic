@@ -1,12 +1,10 @@
-# Norrsken for [Visual Studio Code](http://code.visualstudio.com)
+# Norrsken
 
-> A dark theme for [Visual Studio Code](http://code.visualstudio.com).
+I created this fork of the [Norrken theme](https://github.com/webhooked/norrsken-vscode) because I got frustrated with the lack of rich semantic colorization for VSCode's TextMate grammar implementation of C++.
 
-## Introducing **Norrsken**
+## Here's a first look:
 
-An aurora-inspired dark theme designed to minimize eye strain and improve syntax highlighting - making it easier for developers to read and write code.
-
-![Screenshot](https://raw.githubusercontent.com/webhooked/norrsken-vscode/master/screenshot.png)
+<img width="1803" height="1557" alt="image" src="https://github.com/user-attachments/assets/28e83a36-a7bb-4b51-85a0-f07b7305ddaf" />
 
 ## Contributing
 
