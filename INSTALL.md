@@ -4,7 +4,7 @@
 
 1.  Go to `View -> Command Palette` or press `Ctrl+Shift+P`
 2.  Then enter `Install Extension`
-3.  Write `Norrsken`
+3.  Write `Norrsken Semantic`
 4.  Select it or press Enter to install
 
 #### Install using Git
@@ -12,8 +12,8 @@
 If you are a git user, you can install the theme and keep up to date by cloning the repo:
 
 ```bash
-git clone https://github.com/webhooked/norrsken-vscode.git ~/.vscode/extensions/theme-norrsken
-cd ~/.vscode/extensions/theme-norrsken
+git clone https://github.com/AndreiMoraru123/norrsken-vscode-semantic ~/.vscode/extensions/theme-norrsken-semantic
+cd ~/.vscode/extensions/theme-norrsken-semantic
 npm install
 npm run build
 ```
