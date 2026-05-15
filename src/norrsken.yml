@@ -1,7 +1,7 @@
 $schema: vscode://schemas/color-theme
-name: Norrsken
-author: Webhooked
-semanticClass: theme.norrsken
+name: Norrsken Semantic
+author: Webhooked + local semantic fork
+semanticClass: theme.norrsken.semantic
 semanticHighlighting: true
 norrsken:
   base:
@@ -34,6 +34,8 @@ norrsken:
     - &COLOR15 "#F7F7FD"
   other:
     - &LineHighlight "#303040"
+    - &CONST "#B5B5FE"
+    - &VARIABLE "#C9D2E3"
 
 # User Interface (more info: https://code.visualstudio.com/docs/getstarted/theme-color-reference)
 colors:
@@ -371,6 +373,118 @@ colors:
   listFilterWidget.outline: *BG # Outline color of the type filter widget in lists and trees.
   listFilterWidget.noMatchesOutline: *FLARE # Outline color of the type filter widget in lists and trees, when there are no matches.
 
+semanticTokenColors:
+  # C++/clangd semantic pass. Keep the Norrsken palette restrained: semantic
+  # roles get small shifts, while declarations get the brightest treatment.
+  "*.deprecated:cpp":
+    foreground: *COMMENT
+    fontStyle: italic
+  "*.deduced:cpp":
+    foreground: *TWILIGHT
+    fontStyle: italic
+  "*.readonly:cpp":
+    foreground: *CONST
+  "comment:cpp": *COMMENT
+  "keyword:cpp":
+    foreground: *TWILIGHT
+    fontStyle: italic
+  "modifier:cpp":
+    foreground: *TWILIGHT
+    fontStyle: italic
+  "operator:cpp": *TWILIGHT
+  "bracket:cpp": *COMMENT
+  "namespace:cpp": *COMMENT
+  "namespace.defaultLibrary:cpp": *COMMENT
+  "type:cpp":
+    foreground: *TWILIGHT
+    fontStyle: italic
+  "type.defaultLibrary:cpp":
+    foreground: *TWILIGHT
+    fontStyle: italic
+  "type.declaration:cpp":
+    foreground: *FG
+    fontStyle: normal
+  "type.definition:cpp":
+    foreground: *FG
+    fontStyle: normal
+  "type.deduced:cpp":
+    foreground: *TWILIGHT
+    fontStyle: italic
+  "type.userDefined:cpp":
+    foreground: *FG
+    fontStyle: normal
+  "type.dependentName:cpp":
+    foreground: *FG
+    fontStyle: normal
+  "class:cpp": *FG
+  "class.declaration:cpp":
+    foreground: *FG
+  "class.definition:cpp":
+    foreground: *FG
+  "struct:cpp": *FG
+  "struct.declaration:cpp":
+    foreground: *FG
+  "struct.definition:cpp":
+    foreground: *FG
+  "enum:cpp": *FG
+  "enum.declaration:cpp":
+    foreground: *FG
+  "enum.definition:cpp":
+    foreground: *FG
+  "enumMember:cpp": *CONST
+  "interface:cpp": *FG
+  "interface.declaration:cpp":
+    foreground: *FG
+  "typeParameter:cpp":
+    foreground: *GLOW
+    fontStyle: italic
+  "concept:cpp":
+    foreground: *GLOW
+    fontStyle: italic
+  "unknown:cpp": *TWILIGHT
+  "function:cpp": *TWILIGHT
+  "function.defaultLibrary:cpp": *TWILIGHT
+  "function.static:cpp":
+    foreground: *SHIMMER
+    fontStyle: italic
+  "function.declaration:cpp":
+    foreground: *SHIMMER
+  "function.definition:cpp":
+    foreground: *SHIMMER
+  "method:cpp": *SHIMMER
+  "method.defaultLibrary:cpp": *TWILIGHT
+  "method.static:cpp":
+    foreground: *SHIMMER
+    fontStyle: italic
+  "method.declaration:cpp":
+    foreground: *SHIMMER
+  "method.definition:cpp":
+    foreground: *SHIMMER
+  "function.constructorOrDestructor:cpp":
+    foreground: *SHIMMER
+  "method.constructorOrDestructor:cpp":
+    foreground: *SHIMMER
+  "macro:cpp": *GLOW
+  "macro.defaultLibrary:cpp": *TWILIGHT
+  "variable:cpp": *VARIABLE
+  "variable.declaration:cpp": *VARIABLE
+  "variable.definition:cpp": *VARIABLE
+  "variable.readonly:cpp": *CONST
+  "variable.static:cpp":
+    fontStyle: italic
+  "variable.defaultLibrary:cpp": *VARIABLE
+  "parameter:cpp":
+    foreground: *VARIABLE
+    fontStyle: italic
+  "parameter.readonly:cpp":
+    foreground: *CONST
+    fontStyle: italic
+  "property:cpp": *VARIABLE
+  "property.readonly:cpp": *CONST
+  "property.static:cpp":
+    fontStyle: italic
+  "label:cpp": *GLOW
+
 # Syntaxes
 tokenColors:
   # =============================================================================
@@ -547,7 +661,7 @@ tokenColors:
       - entity.name.type.class
       - entity.name.class
     settings:
-      foreground: *GLOW
+      foreground: *FG
       fontStyle: normal
 
   - name: this, super, self, etc.
@@ -705,6 +819,7 @@ tokenColors:
       - punctuation.definition.keyword
     settings:
       foreground: *TWILIGHT
+      fontStyle: italic
 
   - name: Keyword "new"
     scope:
@@ -848,6 +963,34 @@ tokenColors:
   # Storage
   # =============================================================================
 
+  - name: C++ declaration/storage keywords
+    scope:
+      - source.cpp storage.type
+      - source.cpp storage.modifier
+      - source.c++ storage.type
+      - source.c++ storage.modifier
+      - storage.type.cpp
+      - storage.modifier.cpp
+      - storage.type.c++
+      - storage.modifier.c++
+    settings:
+      fontStyle: italic
+      foreground: *TWILIGHT
+
+  - name: C++ user-defined type names
+    scope:
+      - source.cpp entity.name.type
+      - source.cpp entity.name.type.class
+      - source.c++ entity.name.type
+      - source.c++ entity.name.type.class
+      - entity.name.type.cpp
+      - entity.name.type.class.cpp
+      - entity.name.type.c++
+      - entity.name.type.class.c++
+    settings:
+      fontStyle: normal
+      foreground: *FG
+
   - name: Storage
     scope:
       - storage
@@ -987,6 +1130,19 @@ tokenColors:
   # =============================================================================
   # Variables
   # =============================================================================
+
+  - name: C++ variables and object properties
+    scope:
+      - source.cpp variable
+      - source.c++ variable
+      - variable.other.readwrite.cpp
+      - variable.other.readwrite.c++
+      - variable.other.property.cpp
+      - variable.other.property.c++
+      - variable.parameter.cpp
+      - variable.parameter.c++
+    settings:
+      foreground: *VARIABLE
 
   - name: Variables and object properties
     scope:

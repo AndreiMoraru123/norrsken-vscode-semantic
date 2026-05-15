@@ -1,24 +1,24 @@
 {
-	"name": "theme-norrsken",
-	"version": "2.0.3",
-	"displayName": "Norrsken",
+	"name": "norrsken-vscode-semantic",
+	"version": "0.1.0",
+	"displayName": "Norrsken Semantic",
 	"homepage": "https://norrsken.dev/",
-	"description": "Official Norrsken Theme. Aurora-inspired theme designed to minimize eye strain and improve syntax highlighting.",
-	"publisher": "Norrsken",
+	"description": "Local Norrsken fork with semantic highlighting refinements.",
+	"publisher": "local",
 	"license": "MIT",
 	"scripts": {
 		"build": "node ./scripts/build.js",
 		"lint": "node ./scripts/lint.js",
-		"package": "vsce package -o ./bin/norrsken.vsix",
+		"package": "vsce package -o ./bin/norrsken-semantic.vsix",
 		"vscode:prepublish": "npm run build",
 		"vsce-publish": "vsce publish"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/webhooked/norrsken-vscode.git"
+		"url": "https://github.com/AndreiMoraru-Ai4GoodRo/norrsken-vscode-semantic.git"
 	},
 	"bugs": {
-		"url": "https://github.com/webhooked/norrsken-vscode/issues"
+		"url": "https://github.com/AndreiMoraru-Ai4GoodRo/norrsken-vscode-semantic/issues"
 	},
 	"engines": {
 		"vscode": "^1.13.0"
@@ -33,7 +33,7 @@
 	"contributes": {
 		"themes": [
 			{
-				"label": "Norrsken",
+				"label": "Norrsken Semantic",
 				"uiTheme": "vs-dark",
 				"path": "./theme/norrsken.json"
 			}
