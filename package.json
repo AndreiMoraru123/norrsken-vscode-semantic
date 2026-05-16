@@ -1,6 +1,6 @@
 {
 	"name": "norrsken-semantic",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"displayName": "Norrsken Aurora",
 	"homepage": "https://norrsken.dev/",
 	"description": "Local Norrsken fork with semantic highlighting refinements.",
@@ -33,7 +33,7 @@
 	"contributes": {
 		"themes": [
 			{
-				"label": "Norrsken Semantic",
+				"label": "Norrsken Aurora",
 				"uiTheme": "vs-dark",
 				"path": "./theme/norrsken.json"
 			}
