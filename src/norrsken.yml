@@ -374,117 +374,229 @@ colors:
   listFilterWidget.noMatchesOutline: *FLARE # Outline color of the type filter widget in lists and trees, when there are no matches.
 
 semanticTokenColors:
-  # C++/clangd semantic pass. Keep the Norrsken palette restrained: semantic
-  # roles get small shifts, while declarations get the brightest treatment.
-  "*.deprecated:cpp":
+  # ===========================================================================
+  # Generic semantic highlighting
+  # ===========================================================================
+  # These apply across TS/JS, Python, Rust, Go, Java, C#, etc.
+  # Language-specific overrides below refine the experience where richer
+  # semantic metadata exists (notably clangd/C++).
+  # ===========================================================================
+
+  "*.deprecated":
     foreground: *COMMENT
     fontStyle: italic
-  "*.deduced:cpp":
-    foreground: *TWILIGHT
-    fontStyle: italic
-  "*.readonly:cpp":
+
+  "*.readonly":
     foreground: *CONST
-  "comment:cpp": *COMMENT
-  "keyword:cpp":
+
+  "*.defaultLibrary":
+    foreground: *TWILIGHT
+
+  "*.static":
+    fontStyle: italic
+
+  "*.deduced":
     foreground: *TWILIGHT
     fontStyle: italic
-  "modifier:cpp":
+
+  "comment":
+    foreground: *COMMENT
+
+  "keyword":
     foreground: *TWILIGHT
     fontStyle: italic
-  "operator:cpp":
+
+  "modifier":
+    foreground: *TWILIGHT
+    fontStyle: italic
+
+  "operator":
     foreground: *TWILIGHT
     fontStyle: ""
-  "bracket:cpp": *COMMENT
-  "namespace:cpp": *COMMENT
-  "namespace.defaultLibrary:cpp": *COMMENT
-  "type:cpp":
+
+  "bracket":
+    foreground: *COMMENT
+
+  "namespace":
+    foreground: *COMMENT
+
+  "label":
+    foreground: *GLOW
+
+  "type":
     foreground: *TWILIGHT
     fontStyle: italic
-  "type.defaultLibrary:cpp":
-    foreground: *TWILIGHT
+
+  "type.declaration":
+    foreground: *FG
+    fontStyle: normal
+
+  "type.definition":
+    foreground: *FG
+    fontStyle: normal
+
+  "type.userDefined":
+    foreground: *FG
+    fontStyle: normal
+
+  "class":
+    foreground: *FG
+
+  "class.declaration":
+    foreground: *FG
+
+  "class.definition":
+    foreground: *FG
+
+  "struct":
+    foreground: *FG
+
+  "struct.declaration":
+    foreground: *FG
+
+  "struct.definition":
+    foreground: *FG
+
+  "enum":
+    foreground: *FG
+
+  "enum.declaration":
+    foreground: *FG
+
+  "enum.definition":
+    foreground: *FG
+
+  "enumMember":
+    foreground: *CONST
+
+  "interface":
+    foreground: *FG
+
+  "interface.declaration":
+    foreground: *FG
+
+  "typeParameter":
+    foreground: *GLOW
     fontStyle: italic
-  "type.declaration:cpp":
-    foreground: *FG
-    fontStyle: normal
-  "type.definition:cpp":
-    foreground: *FG
-    fontStyle: normal
-  "type.deduced:cpp":
-    foreground: *TWILIGHT
+
+  "concept":
+    foreground: *GLOW
     fontStyle: italic
-  "type.userDefined:cpp":
-    foreground: *FG
-    fontStyle: normal
+
+  "unknown":
+    foreground: *TWILIGHT
+
+  "function":
+    foreground: *SHIMMER
+
+  "function.static":
+    foreground: *SHIMMER
+    fontStyle: italic
+
+  "function.declaration":
+    foreground: *SHIMMER
+
+  "function.definition":
+    foreground: *SHIMMER
+
+  "function.constructorOrDestructor":
+    foreground: *SHIMMER
+
+  "method":
+    foreground: *SHIMMER
+
+  "method.static":
+    foreground: *SHIMMER
+    fontStyle: italic
+
+  "method.declaration":
+    foreground: *SHIMMER
+
+  "method.definition":
+    foreground: *SHIMMER
+
+  "method.constructorOrDestructor":
+    foreground: *SHIMMER
+
+  "macro":
+    foreground: *GLOW
+
+  "variable":
+    foreground: *VARIABLE
+
+  "variable.declaration":
+    foreground: *VARIABLE
+
+  "variable.definition":
+    foreground: *VARIABLE
+
+  "variable.readonly":
+    foreground: *CONST
+
+  "variable.defaultLibrary":
+    foreground: *VARIABLE
+
+  "parameter":
+    foreground: *VARIABLE
+    fontStyle: italic
+
+  "parameter.readonly":
+    foreground: *CONST
+    fontStyle: italic
+
+  "property":
+    foreground: *VARIABLE
+
+  "property.readonly":
+    foreground: *CONST
+
+  # ===========================================================================
+  # C++ / clangd enrichments
+  # ===========================================================================
+  # clangd exposes richer semantic categories than most language servers.
+  # These rules selectively override the generic semantic layer above.
+  # ===========================================================================
+
   "type.dependentName:cpp":
     foreground: *FG
     fontStyle: normal
-  "class:cpp": *FG
-  "class.declaration:cpp":
-    foreground: *FG
-  "class.definition:cpp":
-    foreground: *FG
-  "struct:cpp": *FG
-  "struct.declaration:cpp":
-    foreground: *FG
-  "struct.definition:cpp":
-    foreground: *FG
-  "enum:cpp": *FG
-  "enum.declaration:cpp":
-    foreground: *FG
-  "enum.definition:cpp":
-    foreground: *FG
-  "enumMember:cpp": *CONST
-  "interface:cpp": *FG
-  "interface.declaration:cpp":
-    foreground: *FG
-  "typeParameter:cpp":
-    foreground: *GLOW
+
+  "type.deduced:cpp":
+    foreground: *TWILIGHT
     fontStyle: italic
+
   "concept:cpp":
     foreground: *GLOW
     fontStyle: italic
-  "unknown:cpp": *TWILIGHT
-  "function:cpp": *TWILIGHT
-  "function.defaultLibrary:cpp": *TWILIGHT
+
+  "namespace.defaultLibrary:cpp":
+    foreground: *COMMENT
+
+  "function.defaultLibrary:cpp":
+    foreground: *TWILIGHT
+
+  "method.defaultLibrary:cpp":
+    foreground: *TWILIGHT
+
+  "macro.defaultLibrary:cpp":
+    foreground: *TWILIGHT
+
   "function.static:cpp":
     foreground: *SHIMMER
     fontStyle: italic
-  "function.declaration:cpp":
-    foreground: *SHIMMER
-  "function.definition:cpp":
-    foreground: *SHIMMER
-  "method:cpp": *SHIMMER
-  "method.defaultLibrary:cpp": *TWILIGHT
+
   "method.static:cpp":
     foreground: *SHIMMER
     fontStyle: italic
-  "method.declaration:cpp":
-    foreground: *SHIMMER
-  "method.definition:cpp":
-    foreground: *SHIMMER
-  "function.constructorOrDestructor:cpp":
-    foreground: *SHIMMER
-  "method.constructorOrDestructor:cpp":
-    foreground: *SHIMMER
-  "macro:cpp": *GLOW
-  "macro.defaultLibrary:cpp": *TWILIGHT
-  "variable:cpp": *VARIABLE
-  "variable.declaration:cpp": *VARIABLE
-  "variable.definition:cpp": *VARIABLE
-  "variable.readonly:cpp": *CONST
+
   "variable.static:cpp":
-    fontStyle: italic
-  "variable.defaultLibrary:cpp": *VARIABLE
-  "parameter:cpp":
     foreground: *VARIABLE
     fontStyle: italic
-  "parameter.readonly:cpp":
-    foreground: *CONST
-    fontStyle: italic
-  "property:cpp": *VARIABLE
-  "property.readonly:cpp": *CONST
+
   "property.static:cpp":
+    foreground: *VARIABLE
     fontStyle: italic
+
   "label:cpp": *GLOW
 
 # Syntaxes
