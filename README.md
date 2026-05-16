@@ -1,4 +1,4 @@
-# Norrsken
+# Norrsken Semantic
 
 I created this fork of the [Norrken theme](https://github.com/webhooked/norrsken-vscode) because I got frustrated with the lack of rich semantic colorization for VSCode's TextMate grammar implementation of C++.
 
