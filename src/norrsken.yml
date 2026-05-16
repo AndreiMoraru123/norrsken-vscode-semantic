@@ -1,6 +1,6 @@
 $schema: vscode://schemas/color-theme
 name: Norrsken Semantic
-author: Webhooked + local semantic fork
+author: Webhooked + Andrei Moraru
 semanticClass: theme.norrsken.semantic
 semanticHighlighting: true
 norrsken:
