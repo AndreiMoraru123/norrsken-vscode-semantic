@@ -35,9 +35,10 @@ norrsken:
   other:
     - &LineHighlight "#303040"
     - &CONST "#B5B5FE"
-    - &VARIABLE "#C9D2E3"
+    - &VARIABLE "#CAD8EE"
     - &STATIC "#D8B8F8"
     - &CALL "#A5B8CA"
+    - &DECORATOR "#F0E3FF"
 
 # User Interface (more info: https://code.visualstudio.com/docs/getstarted/theme-color-reference)
 colors:
@@ -360,7 +361,7 @@ colors:
   settings.textInputBorder: *BG # Text input box border
   settings.numberInputBackground: *BG # Number input box background
   settings.numberInputForeground: *FG # Number input box foreground
-  settings.numberInputBorder: *BG # Number input box border
+  settings.numberInputBorder: *BG # Text input box border
 
   # Breadcrumbs
   breadcrumb.foreground: *COMMENT # Color of breadcrumb items
@@ -488,6 +489,11 @@ semanticTokenColors:
   "unknown":
     foreground: *TWILIGHT
 
+  # ---------------------------------------------------------------------------
+  # Functions / methods
+  # Bare "function"/"method" = call site (no definition modifier from weak LSPs)
+  # ---------------------------------------------------------------------------
+
   "function":
     foreground: *CALL
 
@@ -503,6 +509,16 @@ semanticTokenColors:
 
   "function.constructorOrDestructor":
     foreground: *SHIMMER
+
+  # Decorators: LSPs sometimes emit function with decorator modifier,
+  # or a dedicated decorator token type. Both map to DECORATOR.
+  "function.decorator":
+    foreground: *DECORATOR
+    fontStyle: bold italic
+
+  "decorator":
+    foreground: *DECORATOR
+    fontStyle: bold italic
 
   "method":
     foreground: *CALL
@@ -608,6 +624,70 @@ semanticTokenColors:
     fontStyle: italic
 
   "label:cpp": *GLOW
+
+  # ===========================================================================
+  # Python / Mojo enrichments
+  # ===========================================================================
+  # These LSPs emit bare tokens without definition/declaration modifiers.
+  # We override types to be FG (user-defined feel) and handle decorators
+  # via the dedicated semantic decorator token + function.decorator modifier.
+  # ===========================================================================
+
+  "type:python":
+    foreground: *FG
+    fontStyle: normal
+
+  "class:python":
+    foreground: *FG
+
+  "type:mojo":
+    foreground: *FG
+    fontStyle: normal
+
+  "class:mojo":
+    foreground: *FG
+
+  # Pyrefly/pylance emit function.decorator for decorator names
+  "function.decorator:python":
+    foreground: *DECORATOR
+    fontStyle: bold italic
+
+  "decorator:python":
+    foreground: *DECORATOR
+    fontStyle: bold italic
+
+  "function.decorator:mojo":
+    foreground: *DECORATOR
+    fontStyle: bold italic
+
+  "decorator:mojo":
+    foreground: *DECORATOR
+    fontStyle: bold italic
+
+  "class.defaultLibrary:python":
+    foreground: *DECORATOR
+    fontStyle: bold italic
+
+  # Pyrefly/Mojo LSP emit bare "method"/"function" for ALL sites — defs and
+  # calls alike, no definition modifier. We bias toward SHIMMER (bright blue)
+  # since the definition keyword (def, italic) already signals definition
+  # context, and () signals call context. Name color is uniform but the
+  # surrounding syntax still carries the distinction.
+  "method:python":
+    foreground: *SHIMMER
+
+  "function:python":
+    foreground: *SHIMMER
+
+  "method:mojo":
+    foreground: *SHIMMER
+
+  "function:mojo":
+    foreground: *SHIMMER
+
+  "interface:mojo":
+    foreground: *GLOW
+    fontStyle: italic
 
 # Syntaxes
 tokenColors:
@@ -894,9 +974,29 @@ tokenColors:
   # Functions/Methods
   # =============================================================================
 
-  - name: Function names
+  # Definition context: name inside a def/fn/func block.
+  # More specific (two-scope) so wins over bare entity.name.function.
+  # NOTE: semantic layer still wins when LSP fires — this is the TextMate
+  # fallback for languages where LSP emits no definition modifier.
+  - name: Function definition names (TextMate fallback for weak LSPs)
     scope:
-      - entity.name.function
+      - meta.function entity.name.function
+      - meta.function.python entity.name.function
+      - meta.function.mojo entity.name.function
+      - meta.function.rust entity.name.function
+      - meta.function.go entity.name.function
+      - meta.function.js entity.name.function
+      - meta.function.ts entity.name.function
+    settings:
+      foreground: *SHIMMER
+
+  # Call context: name inside a call expression.
+  - name: Function call names (TextMate fallback)
+    scope:
+      - meta.function-call entity.name.function
+      - meta.function-call.python entity.name.function
+      - meta.function-call.mojo entity.name.function
+      - entity.name.function.call
       - meta.function-call.object
       - meta.function-call.php
       - meta.function-call.static
@@ -905,7 +1005,14 @@ tokenColors:
       - support.function.any-method.lua
       - keyword.operator.function.infix
     settings:
-      foreground: *GLOW
+      foreground: *CALL
+
+  # Bare fallback — no context available.
+  - name: Standalone function names (no context, safe default)
+    scope:
+      - entity.name.function
+    settings:
+      foreground: *CALL
 
   - name: Function parameters
     scope:
@@ -919,19 +1026,25 @@ tokenColors:
       fontStyle: italic
       foreground: *SHIMMER
 
-  - name: Decorators
+  # =============================================================================
+  # Decorators
+  # =============================================================================
+  # TextMate fallback — semantic layer handles these when LSP fires.
+  # Both @ punctuation and the decorator name use DECORATOR color.
+
+  - name: Decorator punctuation and name (TextMate)
     scope:
+      - punctuation.definition.decorator
+      - meta.decorator punctuation.definition.decorator
+      - entity.name.function.decorator
+      - meta.decorator.python punctuation
       - meta.decorator variable.other.readwrite
       - meta.decorator variable.other.property
-    settings:
-      foreground: *SHIMMER
-      fontStyle: italic
-
-  - name: Decorator Objects
-    scope:
+      - meta.decorator entity.name.function
       - meta.decorator variable.other.object
     settings:
-      foreground: *SHIMMER
+      foreground: *DECORATOR
+      fontStyle: bold italic
 
   # =============================================================================
   # Keywords
@@ -1062,7 +1175,7 @@ tokenColors:
       foreground: *TWILIGHT
 
   # =============================================================================
-  # Serializable / Config Langages
+  # Serializable / Config Languages
   # =============================================================================
 
   - name: Keys (serializable languages)
@@ -1120,6 +1233,8 @@ tokenColors:
       fontStyle: normal
       foreground: *FG
 
+  # Generic storage — fontStyle intentionally omitted here so it doesn't
+  # clobber the more-specific function keyword rule below.
   - name: Storage
     scope:
       - storage
@@ -1127,7 +1242,19 @@ tokenColors:
       - meta.interface-or-protocol storage.type.objc
       - source.groovy storage.type.def
     settings:
-      fontStyle: regular
+      foreground: *TWILIGHT
+
+  # Function/method definition keywords: def, fn (deprecated in Mojo but still
+  # in stdlib), func, async def, etc. Must come AFTER the generic Storage rule
+  # and must NOT set fontStyle: regular anywhere above, or this italic won't fire.
+  - name: Function definition keywords (def, fn, func, async, etc.)
+    scope:
+      - storage.type.function        # def in Python, Mojo, Ruby
+      - storage.type.function.arrow  # => / arrow functions
+      - keyword.declaration.function # Rust fn, Go func
+      - keyword.declaration.async    # async keyword
+    settings:
+      fontStyle: italic
       foreground: *TWILIGHT
 
   - name: Types
@@ -1168,6 +1295,7 @@ tokenColors:
       - storage.modifier
     settings:
       foreground: *TWILIGHT
+      fontStyle: italic
 
   # =============================================================================
   # RegExp
@@ -1351,8 +1479,8 @@ tokenColors:
     settings:
       foreground: *FG
 
-  # This is set to conform to the standard of coloring langage constants TWILIGHT.
-  # In this case, this colors "$?", "$@", "$*", "$1", etc..
+  # This is set to conform to the standard of coloring language constants TWILIGHT.
+  # In this case, this colors "$?", "$@", "$*", "$1", etc.
   - name: Shell variables prefixed with "$" (edge case)
     scope:
       - source.shell variable.other
@@ -1372,7 +1500,7 @@ tokenColors:
     settings:
       foreground: *AURORA
 
-  - name: SCSS attibute selector strings
+  - name: SCSS attribute selector strings
     scope:
       - meta.attribute-selector.scss
     settings:
