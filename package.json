@@ -4,7 +4,7 @@
 	"displayName": "Norrsken Semantic",
 	"homepage": "https://norrsken.dev/",
 	"description": "Local Norrsken fork with semantic highlighting refinements.",
-	"publisher": "local",
+	"publisher": "AndreiMoraru",
 	"license": "MIT",
 	"scripts": {
 		"build": "node ./scripts/build.js",
