@@ -33,3 +33,7 @@ jobs:
       - run: npx vsce publish -p $VSCE_PUBLISHER_TOKEN
         env:
           VSCE_PUBLISHER_TOKEN: ${{ secrets.VSCE_PUBLISHER_TOKEN }}
+
+      - run: npx ovsx publish norrsken.vsix -p $OVSX_PAT
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
