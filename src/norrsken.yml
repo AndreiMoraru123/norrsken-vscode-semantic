@@ -391,7 +391,9 @@ semanticTokenColors:
   "modifier:cpp":
     foreground: *TWILIGHT
     fontStyle: italic
-  "operator:cpp": *TWILIGHT
+  "operator:cpp":
+    foreground: *TWILIGHT
+    fontStyle: ""
   "bracket:cpp": *COMMENT
   "namespace:cpp": *COMMENT
   "namespace.defaultLibrary:cpp": *COMMENT
@@ -813,10 +815,15 @@ tokenColors:
   # Keywords
   # =============================================================================
 
-  - name: Keywords
+  - name: Control Keywords
     scope:
-      - keyword
-      - punctuation.definition.keyword
+      - keyword.control
+      - keyword.control.conditional
+      - keyword.control.flow
+      - keyword.control.loop
+      - keyword.control.exception
+      - keyword.control.import
+      - keyword.control.return
     settings:
       foreground: *TWILIGHT
       fontStyle: italic
