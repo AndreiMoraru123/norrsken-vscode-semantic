@@ -1,7 +1,7 @@
 {
-	"name": "norrsken-vscode-semantic",
-	"version": "0.1.0",
-	"displayName": "Norrsken Semantic",
+	"name": "norrsken-semantic",
+	"version": "0.0.1",
+	"displayName": "Norrsken Aurora",
 	"homepage": "https://norrsken.dev/",
 	"description": "Local Norrsken fork with semantic highlighting refinements.",
 	"publisher": "AndreiMoraru",
