@@ -36,6 +36,7 @@ norrsken:
     - &LineHighlight "#303040"
     - &CONST "#B5B5FE"
     - &VARIABLE "#C9D2E3"
+    - &STATIC "#D8B8F8"
 
 # User Interface (more info: https://code.visualstudio.com/docs/getstarted/theme-color-reference)
 colors:
@@ -490,7 +491,7 @@ semanticTokenColors:
     foreground: *SHIMMER
 
   "function.static":
-    foreground: *SHIMMER
+    foreground: *STATIC
     fontStyle: italic
 
   "function.declaration":
@@ -506,7 +507,7 @@ semanticTokenColors:
     foreground: *SHIMMER
 
   "method.static":
-    foreground: *SHIMMER
+    foreground: *STATIC
     fontStyle: italic
 
   "method.declaration":
@@ -523,6 +524,10 @@ semanticTokenColors:
 
   "variable":
     foreground: *VARIABLE
+
+  "variable.static":
+    foreground: *STATIC
+    fontStyle: italic
 
   "variable.declaration":
     foreground: *VARIABLE
@@ -546,6 +551,10 @@ semanticTokenColors:
 
   "property":
     foreground: *VARIABLE
+
+  "property.static":
+    foreground: *STATIC
+    fontStyle: italic
 
   "property.readonly":
     foreground: *CONST
@@ -582,19 +591,19 @@ semanticTokenColors:
     foreground: *TWILIGHT
 
   "function.static:cpp":
-    foreground: *SHIMMER
+    foreground: *STATIC
     fontStyle: italic
 
   "method.static:cpp":
-    foreground: *SHIMMER
+    foreground: *STATIC
     fontStyle: italic
 
   "variable.static:cpp":
-    foreground: *VARIABLE
+    foreground: *STATIC
     fontStyle: italic
 
   "property.static:cpp":
-    foreground: *VARIABLE
+    foreground: *STATIC
     fontStyle: italic
 
   "label:cpp": *GLOW
