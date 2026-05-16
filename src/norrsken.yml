@@ -37,6 +37,7 @@ norrsken:
     - &CONST "#B5B5FE"
     - &VARIABLE "#C9D2E3"
     - &STATIC "#D8B8F8"
+    - &CALL "#A5B8CA"
 
 # User Interface (more info: https://code.visualstudio.com/docs/getstarted/theme-color-reference)
 colors:
@@ -488,7 +489,7 @@ semanticTokenColors:
     foreground: *TWILIGHT
 
   "function":
-    foreground: *SHIMMER
+    foreground: *CALL
 
   "function.static":
     foreground: *STATIC
@@ -504,7 +505,7 @@ semanticTokenColors:
     foreground: *SHIMMER
 
   "method":
-    foreground: *SHIMMER
+    foreground: *CALL
 
   "method.static":
     foreground: *STATIC
@@ -582,10 +583,10 @@ semanticTokenColors:
     foreground: *COMMENT
 
   "function.defaultLibrary:cpp":
-    foreground: *TWILIGHT
+    foreground: *CALL
 
   "method.defaultLibrary:cpp":
-    foreground: *TWILIGHT
+    foreground: *CALL
 
   "macro.defaultLibrary:cpp":
     foreground: *TWILIGHT
