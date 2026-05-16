@@ -1,6 +1,6 @@
 {
 	"name": "norrsken-semantic",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"displayName": "Norrsken Aurora",
 	"homepage": "https://norrsken.dev/",
 	"description": "Local Norrsken fork with semantic highlighting refinements.",
@@ -15,10 +15,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/AndreiMoraru-Ai4GoodRo/norrsken-vscode-semantic.git"
+		"url": "https://github.com/AndreiMoraru123/norrsken-vscode-semantic"
 	},
 	"bugs": {
-		"url": "https://github.com/AndreiMoraru-Ai4GoodRo/norrsken-vscode-semantic/issues"
+		"url": "https://github.com/AndreiMoraru123/norrsken-vscode-semantic/issues"
 	},
 	"engines": {
 		"vscode": "^1.13.0"
