@@ -664,10 +664,6 @@ semanticTokenColors:
     foreground: *DECORATOR
     fontStyle: bold italic
 
-  "class.defaultLibrary:python":
-    foreground: *DECORATOR
-    fontStyle: bold italic
-
   # Pyrefly/Mojo LSP emit bare "method"/"function" for ALL sites — defs and
   # calls alike, no definition modifier. We bias toward SHIMMER (bright blue)
   # since the definition keyword (def, italic) already signals definition

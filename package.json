@@ -1,6 +1,6 @@
 {
 	"name": "norrsken-semantic",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"displayName": "Norrsken Aurora",
 	"homepage": "https://norrsken.dev/",
 	"description": "Local Norrsken fork with semantic highlighting refinements.",
