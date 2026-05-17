@@ -39,6 +39,7 @@ norrsken:
     - &STATIC "#D8B8F8"
     - &CALL "#A5B8CA"
     - &DECORATOR "#F0E3FF"
+    - &SELF "#C9A8E8"
 
 # User Interface (more info: https://code.visualstudio.com/docs/getstarted/theme-color-reference)
 colors:
@@ -685,6 +686,16 @@ semanticTokenColors:
     foreground: *GLOW
     fontStyle: italic
 
+  # Self/Special parameters
+  "parameter.selfParameter:python":
+    foreground: *SELF
+    fontStyle: italic
+
+  # Mojo specialVariable
+  "specialVariable":
+    foreground: *SELF
+    fontStyle: italic
+
 # Syntaxes
 tokenColors:
   # =============================================================================
@@ -873,7 +884,7 @@ tokenColors:
       - variable.other.readwrite.instance.ruby # ruby's "@" instance symbol
       - variable.parameter.function.language.special # Special words as parameters
     settings:
-      foreground: *TWILIGHT
+      foreground: *SELF
       fontStyle: italic
 
   - name: Inherited classes
