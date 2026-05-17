@@ -1059,6 +1059,18 @@ tokenColors:
       foreground: *TWILIGHT
       fontStyle: italic
 
+  - name: Other keywords (requires, using, concept, namespace, etc.)
+    scope:
+      - keyword.other
+      - keyword.other.requires.cpp
+      - keyword.other.using.directive.cpp
+      - keyword.other.concept.cpp
+      - keyword.other.namespace.cpp
+      - keyword.other.operator.cpp
+    settings:
+      foreground: *TWILIGHT
+      fontStyle: italic
+
   - name: Keyword "new"
     scope:
       - keyword.control.new
