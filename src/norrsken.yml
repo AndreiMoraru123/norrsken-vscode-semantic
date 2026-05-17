@@ -13,7 +13,7 @@ norrsken:
     - &AURORA "#F5F394"
     - &SHIMMER "#AEDCFE"
     - &SKY "#b5b5fe"
-    - &TWILIGHT "#BBC4D8"
+    - &TWILIGHT "#A8B8CC"
     - &FLARE "#ff2e18"
   ansi:
     - &COLOR0 "#101117"
@@ -35,7 +35,7 @@ norrsken:
   other:
     - &LineHighlight "#303040"
     - &CONST "#B5B5FE"
-    - &VARIABLE "#CAD8EE"
+    - &VARIABLE "#DCE8F5"
     - &STATIC "#D8B8F8"
     - &CALL "#A5B8CA"
     - &DECORATOR "#F0E3FF"
