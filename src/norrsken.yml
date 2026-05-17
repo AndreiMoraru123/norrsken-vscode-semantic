@@ -1240,6 +1240,26 @@ tokenColors:
     settings:
       foreground: *TWILIGHT
 
+  - name: Type definition keywords (class, struct, trait, impl, etc.)
+    scope:
+      - storage.type.class           # class in Python, JS/TS, Java, C#
+      - storage.type.class.python    # class specifically in Python
+      - storage.type.struct          # struct in Rust, Go, C
+      - storage.type.impl            # impl in Rust
+      - storage.type.trait           # trait in Rust
+      - storage.type.interface       # interface in TS, Java, Go
+      - storage.type.enum            # enum in Rust, TS, Java
+      - keyword.declaration.class    # class in JS/TS
+      - keyword.declaration.struct   # struct in Rust/Go
+      - keyword.declaration.impl     # impl in Rust
+      - keyword.declaration.trait    # trait in Rust
+      - keyword.declaration.interface # interface in TS
+      - keyword.declaration.enum     # enum in Rust/TS
+      - storage.type.mojo            # struct/trait in Mojo
+    settings:
+      fontStyle: italic
+      foreground: *TWILIGHT
+
   # Function/method definition keywords: def, fn (deprecated in Mojo but still
   # in stdlib), func, async def, etc. Must come AFTER the generic Storage rule
   # and must NOT set fontStyle: regular anywhere above, or this italic won't fire.
