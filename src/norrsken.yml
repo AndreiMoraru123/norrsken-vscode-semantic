@@ -1249,6 +1249,7 @@ tokenColors:
       - storage.type.function.arrow  # => / arrow functions
       - keyword.declaration.function # Rust fn, Go func
       - keyword.declaration.async    # async keyword
+      - storage.type.type.python     # type in Python 3.12 type aliases
     settings:
       fontStyle: italic
       foreground: *TWILIGHT
