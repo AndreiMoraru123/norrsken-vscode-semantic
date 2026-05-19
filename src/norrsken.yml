@@ -1078,6 +1078,7 @@ tokenColors:
       - keyword.other.concept.cpp
       - keyword.other.namespace.cpp
       - keyword.other.operator.cpp
+      - keyword.cmake
     settings:
       foreground: *TWILIGHT
       fontStyle: italic
