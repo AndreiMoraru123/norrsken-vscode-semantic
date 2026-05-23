@@ -11,7 +11,7 @@ norrsken:
     - &COMMENT "#606070"
     - &GLOW "#98FFC7"
     - &AURORA "#F5F394"
-    - &SHIMMER "#AEDCFE"
+    - &SHIMMER "#A3D5FF"
     - &SKY "#b5b5fe"
     - &TWILIGHT "#A8B8CC"
     - &FLARE "#ff2e18"
@@ -37,7 +37,7 @@ norrsken:
     - &CONST "#B5B5FE"
     - &VARIABLE "#DCE8F5"
     - &STATIC "#D8B8F8"
-    - &CALL "#A5B8CA"
+    - &CALL "#A0BDD6"
     - &DECORATOR "#F0E3FF"
     - &SELF "#C9A8E8"
 
@@ -452,6 +452,15 @@ semanticTokenColors:
   "class.definition":
     foreground: *FG
 
+  "class.constructorOrDestructor":
+    foreground: *SHIMMER
+
+  "class.constructorOrDestructor.declaration":
+    foreground: *SHIMMER
+
+  "class.constructorOrDestructor.definition":
+    foreground: *SHIMMER
+
   "struct":
     foreground: *FG
 
@@ -598,6 +607,15 @@ semanticTokenColors:
 
   "namespace.defaultLibrary:cpp":
     foreground: *COMMENT
+
+  "class.constructorOrDestructor:cpp":
+    foreground: *SHIMMER
+
+  "class.constructorOrDestructor.declaration:cpp":
+    foreground: *SHIMMER
+
+  "class.constructorOrDestructor.definition:cpp":
+    foreground: *SHIMMER
 
   "function.defaultLibrary:cpp":
     foreground: *CALL

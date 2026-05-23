@@ -1,6 +1,6 @@
 {
 	"name": "norrsken-semantic",
-	"version": "0.0.14",
+	"version": "0.0.15",
 	"displayName": "Norrsken Aurora",
 	"homepage": "https://norrsken.dev/",
 	"description": "Local Norrsken fork with semantic highlighting refinements.",
@@ -23,8 +23,16 @@
 	"engines": {
 		"vscode": "^1.13.0"
 	},
-	"categories": ["Themes"],
-	"keywords": ["norrsken", "aurora", "dark", "theme", "color-theme"],
+	"categories": [
+		"Themes"
+	],
+	"keywords": [
+		"norrsken",
+		"aurora",
+		"dark",
+		"theme",
+		"color-theme"
+	],
 	"icon": "icon.png",
 	"galleryBanner": {
 		"color": "#101012",
