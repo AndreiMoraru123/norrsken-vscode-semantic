@@ -38,7 +38,6 @@ norrsken:
     - &VARIABLE "#DCE8F5"
     - &STATIC "#D8B8F8"
     - &CALL "#A0BDD6"
-    - &DECORATOR "#F0E3FF"
     - &SELF "#C9A8E8"
 
 # User Interface (more info: https://code.visualstudio.com/docs/getstarted/theme-color-reference)
@@ -521,14 +520,14 @@ semanticTokenColors:
     foreground: *SHIMMER
 
   # Decorators: LSPs sometimes emit function with decorator modifier,
-  # or a dedicated decorator token type. Both map to DECORATOR.
+  # or a dedicated decorator token type. Both map to AURORA
   "function.decorator":
-    foreground: *DECORATOR
-    fontStyle: bold italic
+    foreground: *AURORA
+    fontStyle: italic
 
   "decorator":
-    foreground: *DECORATOR
-    fontStyle: bold italic
+    foreground: *AURORA
+    fontStyle: italic
 
   "method":
     foreground: *CALL
@@ -659,29 +658,33 @@ semanticTokenColors:
   "class:python":
     foreground: *FG
 
-  "type:mojo":
-    foreground: *FG
-    fontStyle: normal
-
   "class:mojo":
     foreground: *FG
 
   # Pyrefly/pylance emit function.decorator for decorator names
   "function.decorator:python":
-    foreground: *DECORATOR
-    fontStyle: bold italic
+    foreground: *AURORA
+    fontStyle: italic
 
   "decorator:python":
-    foreground: *DECORATOR
-    fontStyle: bold italic
+    foreground: *AURORA
+    fontStyle: italic
 
   "function.decorator:mojo":
-    foreground: *DECORATOR
-    fontStyle: bold italic
+    foreground: *AURORA
+    fontStyle: italic
 
   "decorator:mojo":
-    foreground: *DECORATOR
-    fontStyle: bold italic
+    foreground: *AURORA
+    fontStyle: italic
+
+  "type:mojo":
+    foreground: *GLOW
+    fontStyle: italic
+
+  "parameter:mojo":
+    foreground: *CONST
+    fontStyle: italic
 
   # Pyrefly/Mojo LSP emit bare "method"/"function" for ALL sites — defs and
   # calls alike, no definition modifier. We bias toward SHIMMER (bright blue)
@@ -1055,7 +1058,7 @@ tokenColors:
   # Decorators
   # =============================================================================
   # TextMate fallback — semantic layer handles these when LSP fires.
-  # Both @ punctuation and the decorator name use DECORATOR color.
+  # Both @ punctuation and the decorator name use AURORA color.
 
   - name: Decorator punctuation and name (TextMate)
     scope:
@@ -1068,8 +1071,8 @@ tokenColors:
       - meta.decorator entity.name.function
       - meta.decorator variable.other.object
     settings:
-      foreground: *DECORATOR
-      fontStyle: bold italic
+      foreground: *AURORA
+      fontStyle: italic
 
   # =============================================================================
   # Keywords
